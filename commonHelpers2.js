@@ -19,7 +19,7 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";const o=document.querySelect
                     <li class="slist-nav-item">
                       <a href="${r}" class="slist-nav-link">
                       <svg class="img-amazone">
-            <use href="../img/icons.svg#icon-amazon-pay"></use>
+            <use href="./img/icons.svg#icon-amazon-pay"></use>
           </svg></a>
                     </li>
 
