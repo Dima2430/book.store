@@ -1,4 +1,4 @@
-import"./assets/modulepreload-polyfill-3cfb730f.js";const e=document.querySelector(".slist-card-section"),g=document.querySelector(".slist-demo-thumb");let l=[];function m(s){try{for(let t=0;t<localStorage.length;t++){let i=localStorage.key(t);const a=localStorage.getItem(i),o=JSON.parse(a);l.push(o)}}catch{console.log(error)}}m();n(l);function u({id:s,book_image:t,title:i,list_name:a,description:o,author:c,amazonURL:r,appleURL:d}){return`<div class="slist-card-list">
+import"./assets/modulepreload-polyfill-3cfb730f.js";const l=document.querySelector(".slist-card-section"),p=document.querySelector(".slist-demo-thumb"),i="local-storage-books";function u(s){try{const t=localStorage.getItem(s);return JSON.parse(t)}catch{console.log("error"),n()}}const b=u(i);r(b);function v({id:s,book_image:t,title:e,list_name:o,description:a,author:d,amazonURL:g,appleURL:m}){return`<div class="slist-card-list">
             <div class="slist-card-item">
               <button type="button" data-id=${s} class="slist-del-btn js-slist-del-btn">
               </button>
@@ -6,15 +6,15 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";const e=document.querySelect
                 <img src="${t}" class="slist-book-img" alt="books" />
               </div>
               <div class="slist-info-container">
-                <h3 class="slist-book-header">${i}</h3>
-                <div class="slist-book-category">${a}</div>
-                <p class="slist-book-description">${o}</p>
-                <div class="slist-book-autor">${c}</div>
+                <h3 class="slist-book-header">${e}</h3>
+                <h4 class="slist-book-category">${o}</h4>
+                <p class="slist-book-description">${a}</p>
+                <h5 class="slist-book-autor">${d}</h5>
 
                 <div class="slist-nav">
                   <ul class="slist-nav-list">
                     <li class="slist-nav-item">
-                      <a href="${r}" class="slist-nav-link">
+                      <a href="${g}" class="slist-nav-link">
 
                       <img class="img-amazone logo" src="./img/amazon.png" alt="app">
                      </a>
@@ -22,12 +22,12 @@ import"./assets/modulepreload-polyfill-3cfb730f.js";const e=document.querySelect
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${d}" class="slist-nav-link"><img class="img-app logo" src="./img/ibook.png" alt="app"></a>
+                      <a href="${m}" class="slist-nav-link"><img class="img-app logo" src="./img/ibook.png" alt="app"></a>
                       
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div>`}function p(s){return s.map(u).join("")}function n(s){localStorage.length===0&&k();const t=p(s);e.innerHTML=t,e.addEventListener("click",v)}function v(s){if(s.target.nodeName==="BUTTON"){console.log(s.target.dataset.id);let t=s.target.dataset.id;localStorage.removeItem(s.target.dataset.id),l.filter(i=>i.id===t),l.splice(l.findIndex(i=>i.id===t),1),console.log(l),n(l)}}function k(){g.classList.remove("is-hidden")}
+          </div>`}function h(s){return s.map(v).join("")}function r(s){if(s===null||s===[]||!i)n();else{const t=h(s);l.innerHTML=t,l.addEventListener("click",S)}}async function S(s){if(s.target.nodeName==="BUTTON"){console.log(s.target.dataset.id);let t=s.target.dataset.id;const e=localStorage.getItem(i);let o=JSON.parse(e);if(localStorage.removeItem(i),o.splice(o.findIndex(a=>a.id===t),1),console.log(o),o.length<1)localStorage.removeItem(i),l.innerHTML="",n();else{const a=JSON.stringify(o);localStorage.setItem(i,a),r(o)}}}function n(){p.classList.remove("is-hidden")}const c="local-storage-books",k={id:"643282b1e85766588626a0dc",book_image:"https://storage.googleapis.com/du-prd/books/images/9781538748367.jpg",author:"Harlan Coben",list_name:"Audio Fiction",description:"A man imprisoned for murdering his 3-year-old son becomes convinced his son is still alive and plans an escape. Read by Steven Weber. 10 hours, 16 minutes unabridged.",title:"I WILL FIND YOU",amazonURL:"https://www.amazon.com/dp/1538748363?tag=NYTBSREV-20",appleURL:"https://goto.applebooks.apple/9781543661385?at=10lIEQ"};function f(){const s=localStorage.getItem(c);let t=s?JSON.parse(s):[];const e=k;t.every(a=>a.id!==e.id)&&t.push(e);const o=JSON.stringify(t);localStorage.setItem(c,o)}f();
 //# sourceMappingURL=commonHelpers2.js.map
