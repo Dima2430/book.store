@@ -1,4 +1,4 @@
-import"./assets/header-ec254fa6.js";const o="local-storage-books",a=document.querySelector(".slist-card-section"),m=document.querySelector(".slist-demo-thumb");function u(s){try{const l=localStorage.getItem(s);return JSON.parse(l)}catch{console.log("error"),n()}}const p=u(o);c(p);function v({id:s,book_image:l,title:i,list_name:t,description:e,author:r,amazonURL:d,appleURL:g}){return`<div class="slist-card-list">
+import"./assets/header-f6fe97e4.js";const o="local-storage-books",a=document.querySelector(".slist-card-section"),m=document.querySelector(".slist-demo-thumb");function u(s){try{const l=localStorage.getItem(s);return JSON.parse(l)}catch{console.log("error"),n()}}const p=u(o);c(p);function v({id:s,book_image:l,title:i,list_name:t,description:e,author:r,amazonURL:d,appleURL:g}){return`<div class="slist-card-list">
             <div class="slist-card-item">
               <button type="button" data-id=${s} class="slist-del-btn js-slist-del-btn">
               </button>
