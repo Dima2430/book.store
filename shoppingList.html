@@ -5,45 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    
     <title>shopping list</title>
     <script type="module" crossorigin src="/book.store/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/book.store/assets/modulepreload-polyfill-3cfb730f.js">
-    <link rel="stylesheet" href="/book.store/assets/shoppingList-6945e61f.css">
+    <link rel="modulepreload" crossorigin href="/book.store/assets/header-2770a40e.js">
+    <link rel="stylesheet" href="/book.store/assets/shoppingList-5ed8b94a.css">
   </head>
   <body>
     <!-- mobile version -->
 
-    <header class="demo-header">
-      <section>
-        <a href="./index.html">Go to home</a>
-      </section>
-    </header>
-    <!-- mobile version main -->
-
-    <section class="slist-section">
-      <div class="slist-container">
-        <h2 class="slist-header">
-          Shopping <span class="slist-header-span">List</span>
-        </h2>
+    <header class="header">
+  <div class="container header-container">
+    <nav class="header-naviganion">
+      <a class="header-logo" href="">
+        <svg class="logo-icon" width="24" height="24">
+          <use href="/book.store/assets/symbol-defs-e3273163.svg#icon-logo-1"></use>
+        </svg>
+        <svg class="logo-text-icon" width="77" height="13">
+          <use href="/book.store/assets/symbol-defs-e3273163.svg#icon-Bookshelf"></use>
+        </svg>
+      </a>
+      <ul class="header-menu">
+        <li class="header-item">
+          <a class="header-menu-link exception" href="./index.html">Home</a>
+        </li>
+        <li class="header-item">
+          <a class="header-menu-link" href="./shoppingList.html"> Shopping List
+            <svg class="basket-icon" width="20" height="20">
+              <use href="/book.store/assets/symbol-defs-e3273163.svg#icon-lock-02"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="box-btn">
+      <div class="theme-switch">
+        <input class="theme-switch-input" type="checkbox" id="checkbox">
+        <label class="theme-toggle" for="checkbox"></label>
+        <div class="slider"></div>
       </div>
 
-      <!-- BACKGROUND-->
-      <div class="slist-container">
-        <div class="slist-demo-thumb is-hidden">
-          <p class="slist-demo-text">
-            This page is empty, add some books and proceed to order.
-          </p>
-          <div class="slist-demopicture-thumb">
-            <img src="../img/books.png" alt="books" />
-          </div>
+      
+      <!-- -------Authorization------ >  -->
+      <button type="button" class="signup-btn">
+        Sign up
+        <svg class="sign-arrow" width="20" height="20">
+          <use href="/book.store/assets/symbol-defs-e3273163.svg#icon-arrow-narrow-right"></use>        
+          </svg>
+      </button>
+         <!-- Mob menu  -->
+           <button type="button" class="menu-open-btn">
+        <svg class="menu-open-icon" width="28" height="28">
+          <use href="/book.store/assets/symbol-defs-e3273163.svg#icon-align-left"></use>
+        </svg>
+      </button>
+         <button type="button" class="menu-close-btn hidden">
+        <svg class="menu-close-icon" width="28" height="28">
+          <use href="../img/symbol-defs.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      
+      
+    </div>
+    
+  </div>
+ 
+</header>
+
+
+    
+          
+              
+             
+          
+              
+  
+
+   
+    <!-- mobile version main -->
+    <main>
+      <section class="slist-section">
+        <div class="slist-tittle-container">
+          <h2 class="slist-header">
+            Shopping <span class="slist-header-span">List</span>
+          </h2>
         </div>
 
-        <!-- BOOK RENDER-->
+        <!-- BACKGROUND-->
+        <div class="slist-container">
+          <div class="slist-demo-thumb is-hidden">
+            <p class="slist-demo-text">
+              This page is empty, add some books and proceed to order.
+            </p>
+            <div class="slist-demopicture-thumb">
+              <img src="../img/books.png" alt="books" />
+            </div>
+          </div>
 
-        <div class="slist-card-section"></div>
-      </div>
-    </section>
-    
-    
+          <!-- BOOK RENDER-->
+
+          <div class="slist-card-section"></div>
+        </div>
+      </section>
+      
+      
+      <!-- <script type="module" src="./js/local-storage.js"></script> -->
+    </main>
   </body>
 </html>
