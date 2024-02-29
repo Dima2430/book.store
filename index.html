@@ -13,10 +13,10 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/book.store/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/book.store/assets/header-1d09e868.js">
+    <link rel="modulepreload" crossorigin href="/book.store/assets/header-be8c3040.js">
     <link rel="modulepreload" crossorigin href="/book.store/assets/vendor-174ee90c.js">
     <link rel="stylesheet" href="/book.store/assets/vendor-9473f0a0.css">
-    <link rel="stylesheet" href="/book.store/assets/index-97edd636.css">
+    <link rel="stylesheet" href="/book.store/assets/index-26b43e49.css">
   </head>
   <body>
     <header class="header">
@@ -90,11 +90,16 @@
     <main>
       
                                                           <!-- TEST onclick="loadBookData('643282b1e85766588626a0c2')"   id="openModalBtn"-->
-<a class="test" id="openModalBtn" data-book-id="643282b1e85766588626a0c2">Відкрити вікно</a>
+<!-- <a class="test" id="openModalBtn" data-book-id="643282b1e85766588626a0c2">Відкрити вікно</a> -->
 
 <div id="myModal" class="modal">
     <div class="modal-content">  
-            <div class="content"> 
+        <span class="close" id="closeModalBtn">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 7L7 21M7 7L21 21" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </span>
+        <div class="content">  
                 <img alt="Book cover" class="img_modal"  src="" width=192px height=281px/>
 
                 <div class="text">
@@ -108,20 +113,19 @@
                 </div>
             </div>
 
-            <span class="close" id="closeModalBtn">
+            <!-- <span class="close" id="closeModalBtn">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21 7L7 21M7 7L21 21" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-            </span>
+            </span> -->
         
         <div class="button_place">
-                                 <!-- TEST onclick="toggleShoppingList()"-->
             <button class="button_mod" id="shoppingListBtn" >Add to shopping list</button> 
         </div>
         <div id="notification" class="notification"></div>
     </div>
 </div>
-      <div class="home-page-container"><div class="best-books-gallery"></div></div>
+      <div class="home-page-container"><div class="best-books-gallery" id="container"></div></div>
 
       <div class="loader"></div>
 
