@@ -1,5 +1,44 @@
 import { onAddBtnClick, STORAGE_KEY } from "./local-storage";
 
+function createAddedBookObject(book) {
+  const bookNameElement = document.querySelector('.book_name');
+  const authorElement = document.querySelector('.author');
+  const descriptionElement = document.querySelector('.description');
+  const bookImageElement = document.querySelector('.img_modal');
+  const amazonLinkElement = document.querySelector('.links a[name="Amazon"]');
+  const appleBooksLinkElement = document.querySelector('.links a[name="Apple Books"]');
+
+  // Отримання значень з елементів
+  const title = bookNameElement.textContent;
+  const author = authorElement.textContent;
+  const description = descriptionElement.textContent;
+  const book_image = bookImageElement.src;
+
+  let amazonURL = "";
+  if (amazonLinkElement) {
+      amazonURL = amazonLinkElement.href;
+  }
+
+  let appleURL = "";
+  if (appleBooksLinkElement) {
+      appleURL = appleBooksLinkElement.href;
+  }
+
+  // Створення об'єкта addedBook
+  const addedBook = {
+      id: book._id,
+      book_image,
+      author,
+      list_name: book.list_name,
+      description,
+      title,
+      amazonURL,
+      appleURL,
+  };
+
+  return addedBook;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const parentContainer = document.getElementById('container');
   const modal = document.getElementById('myModal');
@@ -40,9 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
   function toggleShoppingList() {
     const bookId = shoppingListBtn.dataset.bookId;
     const storedBooks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-      
+
+    const book = getBookById(bookId);
+
     if (shoppingListBtn.textContent === "Add to shopping list") {
-          addToShoppingList(bookId, storedBooks);
+          const addedBook = createAddedBookObject(book); 
+          addToShoppingList(bookId, storedBooks, addedBook);
           showNotification('Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.');
           expandModalContent();
       } else {
@@ -52,16 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   }
 
-  function addToShoppingList(bookId, storedBooks) {
+  function addToShoppingList(bookId, storedBooks, addedBook) {
     storedBooks[bookId] = addedBook;  
     localStorage.setItem(STORAGE_KEY, JSON.stringify(storedBooks));
     onAddBtnClick();
     shoppingListBtn.textContent = "Remove from the shopping list";
-    // console.log(bookId);
-    // console.log(storedBooks[bookId]);
-}
+    console.log(bookId);
+    console.log(storedBooks[bookId]);
+  }
 
-    
 function removeFromShoppingList(bookId, storedBooks) {
   delete storedBooks[bookId];
   localStorage.setItem(STORAGE_KEY, JSON.stringify(storedBooks));
@@ -152,3 +193,7 @@ function fillModalContent(book) {
   }
 
 }
+setInterval( ()=>{
+  console.log(localStorage);
+
+},2000)
