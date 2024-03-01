@@ -193,3 +193,16 @@ body {
     margin-left: auto;
   }
 }
+@media screen and (max-width: 768px) {
+.categories-support {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+} 
+}
+.categories-support {
+    margin-top: 110px;
+    margin-left: auto;
+    margin-right: auto;
+}
