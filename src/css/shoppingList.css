@@ -91,14 +91,12 @@ body {
 .slist-tittle-container {
 
     display: block;
-    margin-left: 0;
+    text-align: center;
     margin-bottom: 40px;
     margin-top: 40px;
 }
 
 .side-container {
-
-
 display: none;
 
 }
@@ -313,7 +311,13 @@ display: none;
         margin-left: auto;
         margin-right: auto;
     }
+.slist-tittle-container {
 
+    display: block;
+    margin-left: 0;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
     .slist-header {
 
         font-family: "DM Sans", sans-serif;

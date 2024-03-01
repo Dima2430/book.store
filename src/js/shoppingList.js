@@ -26,6 +26,7 @@ function loadFromLS(key) {
          
 };
 const arrOfId = loadFromLS(STORAGE_KEY);
+console.log(booksIDarray);
 
 
 renderImages(arrOfId);     //рендеримо розмітку
@@ -41,8 +42,9 @@ async function renderImages(array) {
           
           
           const currentBook = await getbook(item);
-          booksArr.push(currentBook);
-        //   return booksArr;
+        booksArr.push(currentBook);
+        // console.log(booksArr);
+          // return booksArr;
            
       }
            const markup = imagesTemplate(booksArr);
@@ -55,7 +57,7 @@ async function renderImages(array) {
   
 function imageTemplate({ _id, book_image,title,list_name,description,author,amazonURL,appleURL}) {
   return `<div class="slist-card-list">
-            <div class="slist-card-item">
+            <li class="slist-card-item">
               <button type="button" data-id=${_id} class="slist-del-btn js-slist-del-btn">
               </button>
               <div class="slist-card-picture">
@@ -84,7 +86,7 @@ function imageTemplate({ _id, book_image,title,list_name,description,author,amaz
                   </ul>
                 </div>
               </div>
-            </div>
+            </li>
           </div>`};
 
           function imagesTemplate(array) {
@@ -93,45 +95,31 @@ function imageTemplate({ _id, book_image,title,list_name,description,author,amaz
 };
 
 
-
-          
-
- async function onBtnClick(e) {
-   if (e.target.nodeName === 'BUTTON') {
-    console.log(e.target.dataset.id);
+function onBtnClick(e) {
+  if (e.target.nodeName !== 'BUTTON') return;
   
-    let bookItemId = (e.target.dataset.id);//знаходимо по ід на кнопку повішену
-   
-    const jsonString = localStorage.getItem(STORAGE_KEY);
-    let currentArray = JSON.parse(jsonString);
+  const liElem = e.target.closest('li');
+  console.log(liElem);
+  const id = e.target.dataset.id;
+  console.log(id);
 
-           
-       
-    if (currentArray.length <= 1) {
-      localStorage.removeItem(STORAGE_KEY);
-      slistGalleryEl.innerHTML = "";
-      showbackground(); 
+  liElem.remove();
+  updateLocalStorage(id);
+}
+
+function updateLocalStorage(id) {
+  const jsonString = localStorage.getItem(STORAGE_KEY);
+ 
+  let currentArray = JSON.parse(jsonString);
+   if (currentArray.length === 0) {
+        showbackground(); 
     }
-    else {
-        localStorage.removeItem(STORAGE_KEY);
-     let newArr = currentArray.splice(
-      currentArray.findIndex(item => item.id === bookItemId),
-      1
-       );
-      slistGalleryEl.innerHTML = "";
-      const updatedJsonString = JSON.stringify(newArr)
-      localStorage.setItem(STORAGE_KEY, updatedJsonString)
-      renderImages((newArr.map(item => item.dataId)));
-      
-
-    };
-        
-      
-  };
-
-
-};
-
+     console.log(currentArray)
+     let newArrofLS = currentArray.filter((item) => item.dataId === id);
+     console.log(newArrofLS);       // масив обєктів по ЛС
+     const updatedJsonString = JSON.stringify(newArrofLS);
+      localStorage.setItem(STORAGE_KEY, updatedJsonString);
+}
 
 
 async function getbook(bookId) {
@@ -146,11 +134,6 @@ async function getbook(bookId) {
         console.log('Результатів не знайдено.');
     };
 
-};
-
-
-function hidebackground() {
-    background.classList.add('is-hidden');
 };
 
 
