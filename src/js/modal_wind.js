@@ -15,13 +15,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   parentContainer.addEventListener('click', function (event) {
       const clickedElement = event.target.closest('.book-card');
-
+    const clickedElement2 = event.target.closest('.book-card-category');
+    
       if (clickedElement) {
-          dataId = clickedElement.dataset.id;
+          dataId = clickedElement.dataset.id ;
           dataBookId = dataId;
           console.log(dataId)
           openModal(dataId);
-      }
+    } else if (clickedElement2) {
+          dataId = clickedElement2.dataset.id ;
+          dataBookId = dataId;
+          console.log(dataId)
+          openModal(dataId);
+    }
+    
   });
 
   closeModalBtn.addEventListener('click', function () {
@@ -37,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
 shoppingListBtn.addEventListener('click', function () {
   toggleShoppingList();
 });
+  
+
 
 function toggleShoppingList() {
   const bookId = shoppingListBtn.dataset.bookId; // Assuming dataId is stored in dataset

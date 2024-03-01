@@ -111,6 +111,13 @@ body.dark-theme h6 {
   color: #fff;
 }
 
+body.dark-theme .sidebar-categories-link {
+  color: #fff;
+}
+
+body.dark-theme .theme-toggle {
+  background: linear-gradient(180.00deg, rgb(79, 46, 232), rgb(104, 104, 104) 100%);
+}
 
 button {
   padding: 0;
