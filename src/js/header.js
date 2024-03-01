@@ -11,6 +11,7 @@ const h4 = document.querySelectorAll('h4');
 const h5 = document.querySelectorAll('h5');
 const h6 = document.querySelectorAll('h6');
 const a = document.querySelectorAll('a');
+const categoryLink = document.querySelectorAll('.sidebar-categories-link');
 
 // Функція для зміни теми та збереження її в локальному сховищі
 function toggleTheme() {

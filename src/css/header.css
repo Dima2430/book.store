@@ -111,6 +111,9 @@ body.dark-theme h6 {
   color: #fff;
 }
 
+body.dark-theme .sidebar-categories-link {
+  color: #fff;
+}
 
 button {
   padding: 0;
