@@ -62,3 +62,16 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  const SBLink = document.querySelector('.sidebar-categories-link');
+  const SBLinkList = document.querySelector('.sidebar-categories-list');
+  const SBlinks = document.querySelectorAll('.sidebar-categories-link');
+  SBLinkList.addEventListener('click', (event) => {
+    const clickedCategory = event.target.closest('.sidebar-categories-link');
+    SBlinks.forEach(elment => {
+      elment.classList.remove('active-link-her');
+    })
+    if (clickedCategory) {
+      clickedCategory.classList.add('active-link-her');
+    }
+  });
