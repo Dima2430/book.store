@@ -211,6 +211,8 @@ display: none;
 
 .slist-book-header {
     /* display: inline-block; */
+    display: block;
+    width: auto;
     max-width: 144px;
     margin-bottom: 4px;
     height: 18px;

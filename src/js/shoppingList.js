@@ -102,7 +102,7 @@ function imageTemplate({ _id, book_image,title,list_name,description,author,amaz
   
     let bookItemId = (e.target.dataset.id);//знаходимо по ід на кнопку повішену
    
-    const jsonString = localStorage.getItem(myStoreKey);
+    const jsonString = localStorage.getItem(STORAGE_KEY);
     let currentArray = JSON.parse(jsonString);
 
            
@@ -131,8 +131,6 @@ function imageTemplate({ _id, book_image,title,list_name,description,author,amaz
 
 
 };
-
-
 
 
 
