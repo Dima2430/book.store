@@ -4,7 +4,27 @@ import axios from 'axios';
 const bookCardBtn = document.querySelectorAll('.book-card-btn');
 const booksContainer = document.querySelector('.best-books-gallery');
 // const chooseButton = document.querySelector('.buttonChoose');
-// const categoriesSelect = document.getElementById('categories');
+
+const categoryLinks = document.querySelectorAll('.sidebar-categories-link');
+
+categoryLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.textContent.trim();
+        loadAndRenderBooks(category);
+        
+    });
+});
+
+async function loadAndRenderBooks(category) {
+    try {
+        const books = await loadBooks(category);
+        renderBooks(books, category);
+    } catch (error) {
+        console.error('Error loading books:', error);
+    }
+}
+
 
 booksContainer.addEventListener('click', onSeeMoreBtnClick);
 
