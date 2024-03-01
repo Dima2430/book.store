@@ -16,7 +16,7 @@
     <link rel="modulepreload" crossorigin href="/book.store/assets/header-1d09e868.js">
     <link rel="modulepreload" crossorigin href="/book.store/assets/vendor-169f9f98.js">
     <link rel="stylesheet" href="/book.store/assets/vendor-a51daae5.css">
-    <link rel="stylesheet" href="/book.store/assets/index-978dc5d2.css">
+    <link rel="stylesheet" href="/book.store/assets/index-26db6bb6.css">
   </head>
   <body>
     <header class="header">
@@ -32,7 +32,7 @@
       </a>
       <ul class="header-menu">
         <li class="header-item">
-          <a class="header-menu-link exception" href="./index.html">Home</a>
+          <a class="header-menu-link activeButton" href="./index.html">Home</a>
         </li>
         <li class="header-item">
           <a class="header-menu-shopping" href="./shoppingList.html"> Shopping List
@@ -88,7 +88,23 @@
 
    
     <main>
-      
+      <div class="form-container">
+  <div class="form">
+    <button class="close-btn">
+      <svg class="firebase-btn" width="12" height="12">
+        <use href="../img/icons.svg#icon-x-close-min"></use>
+      </svg>
+    </button>
+    <form action="/submit" method="post">
+      <input type="text" name="name" placeholder="NAME" required />
+      <input type="email" name="email" placeholder="EMAIL" required />
+      <input type="password" name="password" placeholder="PASSWORD" required />
+      <button class="signup-btn-form" type="submit">SIGN UP</button>
+    </form>
+    <div class="">SIGN UP | SIGN IN</div>
+  </div>
+</div>
+
                                                           <!-- TEST onclick="loadBookData('643282b1e85766588626a0c2')"   id="openModalBtn"-->
 <!-- <a class="test" id="openModalBtn" data-book-id="643282b1e85766588626a0c2">Відкрити вікно</a> -->
 
@@ -125,7 +141,9 @@
         <div id="notification" class="notification"></div>
     </div>
 </div>
-      <div class="home-page-container"><div class="best-books-gallery" id="container"></div></div>
+      <div class="home-page-container">
+  <div class="best-books-gallery" id="container"></div>
+</div>
 
       <div class="loader"></div>
 
@@ -154,26 +172,6 @@
         <use href="/book.store/assets/icons-1f2b14d6.svg#icon-scrollUp"></use>
     </svg>
 </div>
-      <section class="block">
-    <div class="block-title-wrapper">
-        <h1 class="block-title">Support Ukraine</h1>
-        <svg class="support-title-icon" width="20" height="32">
-            <use href="/book.store/assets/symbol-defs-eb974af8.svg#symbol"></use>
-        </svg>
-    </div>
-    <div class="swiper">
-        <ul class="support-list swiper-wrapper">
-        </ul>
-    </div>
-    <button type="button" class="support-button">
-        <svg class="support-icon" width="20" height="20">
-            <use href="/book.store/assets/symbol-defs-eb974af8.svg#arrow"></use>
-        </svg>
-    </button>
-</section>
-
-
-    
 
       <!-- <select name="categories" id="categories">
 <option value="Trade Fiction Paperback">Trade Fiction Paperback</option>
@@ -205,6 +203,5 @@
     
     
     
-
   </body>
 </html>
