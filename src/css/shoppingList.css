@@ -314,6 +314,7 @@ display: none;
 .slist-tittle-container {
 
     display: block;
+    text-align: left;
     margin-left: 0;
     margin-bottom: 40px;
     margin-top: 40px;
@@ -477,7 +478,7 @@ display: none;
 
 
     .slist-book-header {
-
+        display: block;
         font-size: 18px;
         max-width: 700px;
         text-transform: uppercase;
