@@ -12,7 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeModalBtn = document.getElementById('closeModalBtn');
   const notification = document.getElementById('notification');
   const modalContent = document.querySelector('.modal-content');
-
+function isBookInLocalStorage(dataId) { 
+    const jsonString = localStorage.getItem(STORAGE_KEY); 
+    let currentArray; 
+ 
+    try { 
+        currentArray = jsonString ? JSON.parse(jsonString) : []; 
+    } catch (error) { 
+        console.log('Помилка при парсингу JSON:', error); 
+        return false; 
+    } 
+ 
+    return currentArray.some(item => item.dataId === dataId); 
+}
   parentContainer.addEventListener('click', function (event) {
       const clickedElement = event.target.closest('.book-card');
     const clickedElement2 = event.target.closest('.book-card-category');
@@ -126,12 +138,28 @@ async function onDeleteBtnClick(bookId) {
       modalContent.classList.remove('expanded');
   }
 
-  function openModal(bookId) {
-
-      loadBookData(bookId);
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-  }
+  function openModal(bookId) { 
+    getbook(bookId);
+ 
+    // Додана перевірка наявності айді у локальному сховищі 
+    const isBookInShoppingList = isBookInLocalStorage(dataId); 
+ 
+    // Отримуємо кнопку для додавання в кошик 
+    const shoppingListBtn = document.getElementById('shoppingListBtn'); 
+ 
+    if (isBookInShoppingList) { 
+        shoppingListBtn.textContent = "Remove from shopping list"; 
+        showNotification('Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.'); 
+        expandModalContent(); 
+    } else { 
+        shoppingListBtn.textContent = "Add to shopping list"; 
+        hideNotification(); 
+        collapseModalContent(); 
+    } 
+ 
+    modal.style.display = 'block'; 
+    document.body.style.overflow = 'hidden'; 
+}
 
   function closeModal() {
       modal.style.display = 'none';
@@ -139,20 +167,17 @@ async function onDeleteBtnClick(bookId) {
   }
 });
 
-function loadBookData(bookId) {
-  fetch('https://books-backend.p.goit.global/books/top-books')
-      .then(response => response.json())
-      .then(data => {
-          for (const list of data) {
-              const book = list.books.find(book => book._id === bookId);
-              if (book) {
-                  fillModalContent(book);
-                  return;
-              }
-          }
-          console.error('Book not found.');
-      })
-      .catch(error => console.error('Error fetching data:', error));
+async function getbook(bookId) { 
+  const BASE_URL = `https://books-backend.p.goit.global/books/${bookId}`;
+ 
+  try { 
+    const res = await axios.get(BASE_URL); 
+    const book = res.data; 
+    fillModalContent(book); // Додано виклик функції fillModalContent для заповнення модального вікна 
+    return book; 
+  } catch (error) { 
+    console.log('Результатів не знайдено.'); 
+  } 
 }
 
 function fillModalContent(book) {
@@ -184,7 +209,7 @@ function fillModalContent(book) {
   }
 
 }
-setInterval(()=>{
-  console.log(localStorage);
-  // localStorage.clear();
-},2000)
+// setInterval(()=>{
+//   console.log(localStorage);
+//   // localStorage.clear();
+// },2000)
