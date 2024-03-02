@@ -166,7 +166,7 @@ body {
   align-items: flex-start;
   padding: 0;
   gap: 24px;
-  width: 335px;
+  
   height: 228px;
   overflow-y: scroll;
   overflow-x: hidden;
