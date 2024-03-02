@@ -100,25 +100,29 @@ function onBtnClick(e) {
   
   const liElem = e.target.closest('li');
   console.log(liElem);
-  const id = e.target.dataset.id;
-  console.log(id);
+  const bookId = e.target.dataset.id;
+  console.log(bookId);
 
   liElem.remove();
-  updateLocalStorage(id);
-}
+  
 
-function updateLocalStorage(id) {
   const jsonString = localStorage.getItem(STORAGE_KEY);
  
   let currentArray = JSON.parse(jsonString);
+ 
+  console.log(currentArray);
+     let newArrofLS = currentArray.splice(
+      currentArray.findIndex(item => item.dataId === bookId),
+      1
+       );
+        // масив обєктів по ЛС
+  console.log(currentArray);
    if (currentArray.length === 0) {
-        showbackground(); 
-    }
-     console.log(currentArray)
-     let newArrofLS = currentArray.filter((item) => item.dataId === id);
-     console.log(newArrofLS);       // масив обєктів по ЛС
-     const updatedJsonString = JSON.stringify(newArrofLS);
-      localStorage.setItem(STORAGE_KEY, updatedJsonString);
+     showbackground(); 
+      }
+     const updatedJsonString = JSON.stringify(currentArray);
+  localStorage.setItem(STORAGE_KEY, updatedJsonString);
+   
 }
 
 
