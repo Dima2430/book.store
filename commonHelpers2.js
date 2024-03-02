@@ -1,20 +1,20 @@
-import"./assets/sidebar-c1c3702c.js";import{a as m}from"./assets/vendor-169f9f98.js";const r=document.querySelector(".slist-card-section"),u=document.querySelector(".slist-demo-thumb"),n="local-storage-books";let e=[];function p(s){try{const o=localStorage.getItem(s),t=JSON.parse(o);return console.log(t),e=t.map(l=>l.dataId),console.log(e),e}catch{console.log("error"),c()}}const b=p(n);console.log(e);k(b);async function k(s){let o=[];if(s===null||s.length===0||!n)c();else{for(const l of s){const a=await y(l);o.push(a)}const t=h(o);r.innerHTML=t,r.addEventListener("click",v)}}function f({_id:s,book_image:o,title:t,list_name:l,description:a,author:i,amazonURL:g,appleURL:d}){return`<div class="slist-card-list">
+import"./assets/sidebar-c1c3702c.js";import{a as m}from"./assets/vendor-169f9f98.js";const d=document.querySelector(".slist-card-section"),u=document.querySelector(".slist-demo-thumb"),n="local-storage-books";let e=[];function p(s){try{const t=localStorage.getItem(s),o=JSON.parse(t);return console.log(o),e=o.map(a=>a.dataId),console.log(e),e}catch{console.log("error"),r()}}const b=p(n);console.log(e);k(b);async function k(s){let t=[];if(s===null||s.length===0||!n)r();else{for(const a of s){const l=await S(a);t.push(l)}const o=f(t);d.innerHTML=o,d.addEventListener("click",v)}}function h({_id:s,book_image:t,title:o,list_name:a,description:l,author:i,amazonURL:c,appleURL:g}){return`<div class="slist-card-list">
             <li class="slist-card-item">
               <button type="button" data-id=${s} class="slist-del-btn js-slist-del-btn">
               </button>
               <div class="slist-card-picture">
-                <img src="${o}" class="slist-book-img" alt="books" />
+                <img src="${t}" class="slist-book-img" alt="books" />
               </div>
               <div class="slist-info-container">
-                <h3 class="slist-book-header">${t}</h3>
-                <h4 class="slist-book-category">${l}</h4>
-                <p class="slist-book-description">${a}</p>
+                <h3 class="slist-book-header">${o}</h3>
+                <h4 class="slist-book-category">${a}</h4>
+                <p class="slist-book-description">${l}</p>
                 <h5 class="slist-book-autor">${i}</h5>
 
                 <div class="slist-nav">
                   <ul class="slist-nav-list">
                     <li class="slist-nav-item">
-                      <a href="${g}" class="slist-nav-link">
+                      <a href="${c}" class="slist-nav-link">
 
                       <img class="img-amazone logo" src="./img/amazon.png" alt="app">
                      </a>
@@ -22,12 +22,12 @@ import"./assets/sidebar-c1c3702c.js";import{a as m}from"./assets/vendor-169f9f98
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${d}" class="slist-nav-link"><img class="img-app logo" src="./img/ibook.png" alt="app"></a>
+                      <a href="${g}" class="slist-nav-link"><img class="img-app logo" src="./img/ibook.png" alt="app"></a>
                       
                     </li>
                   </ul>
                 </div>
               </div>
             </li>
-          </div>`}function h(s){return s.map(f).join("")}function v(s){if(s.target.nodeName!=="BUTTON")return;const o=s.target.closest("li");console.log(o);const t=s.target.dataset.id;console.log(t),o.remove(),S(t)}function S(s){const o=localStorage.getItem(n);let t=JSON.parse(o);t.length===0&&c(),console.log(t);let l=t.filter(i=>i.dataId===s);console.log(l);const a=JSON.stringify(l);localStorage.setItem(n,a)}async function y(s){const o=`https://books-backend.p.goit.global/books/${s}`;try{return(await m.get(o)).data}catch{console.log("Результатів не знайдено.")}}function c(){u.classList.remove("is-hidden")}
+          </div>`}function f(s){return s.map(h).join("")}function v(s){if(s.target.nodeName!=="BUTTON")return;const t=s.target.closest("li");console.log(t);const o=s.target.dataset.id;console.log(o),t.remove();const a=localStorage.getItem(n);let l=JSON.parse(a);console.log(l),l.splice(l.findIndex(c=>c.dataId===o),1),console.log(l),l.length===0&&r();const i=JSON.stringify(l);localStorage.setItem(n,i)}async function S(s){const t=`https://books-backend.p.goit.global/books/${s}`;try{return(await m.get(t)).data}catch{console.log("Результатів не знайдено.")}}function r(){u.classList.remove("is-hidden")}
 //# sourceMappingURL=commonHelpers2.js.map
