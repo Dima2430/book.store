@@ -53,10 +53,10 @@ async function renderImages(array) {
     } 
 };
 
-import amazon from "./img/amazon.png";
-import ibook from "./img/ibook.png";
+import amazon from "/img/amazon.png";
+import ibook from "/img/ibook.png";
   
-function imageTemplate({ _id, book_image,title,list_name,description,author,amazonURL,appleURL}) {
+function imageTemplate({ _id, book_image, title, list_name, description, author, amazonURL, appleURL }) {
   return `<div class="slist-card-list">
             <li class="slist-card-item">
               <button type="button" data-id=${_id} class="slist-del-btn js-slist-del-btn">
