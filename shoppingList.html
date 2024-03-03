@@ -8,12 +8,13 @@
     
     
     
+    
     <title>shopping list</title>
     <script type="module" crossorigin src="/book.store/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/book.store/assets/vendor-169f9f98.js">
-    <link rel="modulepreload" crossorigin href="/book.store/assets/sidebar-c1c3702c.js">
+    <link rel="modulepreload" crossorigin href="/book.store/assets/sidebar-e534f703.js">
     <link rel="stylesheet" href="/book.store/assets/vendor-a51daae5.css">
-    <link rel="stylesheet" href="/book.store/assets/shoppingList-0d27aebd.css">
+    <link rel="stylesheet" href="/book.store/assets/shoppingList-91ff2f78.css">
   </head>
   <body>
     <!-- mobile version -->
@@ -107,6 +108,23 @@
     <button class="menu-logout-btn">Log out</button>
     <div class="menu-background-image"></div>
 </div>
+      <div class="form-container">
+  <div class="form">
+    <button class="close-btn">
+      <svg class="firebase-btn" width="12" height="12">
+        <use href="/book.store/assets/icons-5e9781ec.svg#icon-x-close-min"></use>
+      </svg>
+    </button>
+    <form action="/submit" method="post">
+      <input type="text" name="name" placeholder="NAME" required />
+      <input type="email" name="email" placeholder="EMAIL" required />
+      <input type="password" name="password" placeholder="PASSWORD" required />
+      <button class="signup-btn-form" type="submit">SIGN UP</button>
+    </form>
+    <div class="">SIGN UP | SIGN IN</div>
+  </div>
+</div>
+
       <section class="slist-section">
         <div>
           <div class="slist-tittle-container">
@@ -227,6 +245,7 @@
           </div>
         </div>
       </section>
+      
       
       
       
