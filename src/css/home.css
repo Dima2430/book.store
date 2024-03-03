@@ -37,7 +37,7 @@
 
 .book-cover {
   border-radius: 8px;
-  width: 335px;
+  width: 280px;
   height: 485px;
 
 }
@@ -101,7 +101,7 @@
   margin-bottom: 40px;
 }
 .book-card {
-  width: 335px;
+ 
   cursor: pointer;
   transition: box-shadow 0.3s;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 0.6);
