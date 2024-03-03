@@ -12,7 +12,9 @@ const h5 = document.querySelectorAll('h5');
 const h6 = document.querySelectorAll('h6');
 const a = document.querySelectorAll('a');
 const categoryLink = document.querySelectorAll('.sidebar-categories-link');
-
+themeSwitch.addEventListener('change', () => {
+      location.reload();
+})
 // Функція для зміни теми та збереження її в локальному сховищі
 function toggleTheme() {
     if (themeSwitch.checked === false) {
