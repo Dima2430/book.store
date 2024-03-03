@@ -58,8 +58,13 @@ import amazon from "../img/amazon.png";
 import ibook from "../img/ibook.png";
 import whiteAmazon from "../img/white-amazon.png"
   
-function imageTemplate({ _id, book_image, title, list_name, description, author, amazonURL, appleURL }) {
-  if (localStorage.getItem('theme') === 'dark') {
+
+function imageTemplate({ _id, book_image, title, list_name, description, author, buy_links }) {
+ 
+
+  let am = buy_links.map(item => item).find(link => link.name === 'Amazon')
+ let apple = buy_links.map(item => item).find(link =>link.name === 'Apple Books')
+   if (localStorage.getItem('theme') === 'dark') {
     const whiteamazon = whiteAmazon; 
     return `<div class="slist-card-list">
             <li class="slist-card-item">
@@ -77,7 +82,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                 <div class="slist-nav">
                   <ul class="slist-nav-list">
                     <li class="slist-nav-item">
-                      <a href="${amazonURL}" class="slist-nav-link">
+                      <a href="${am.url}" class="slist-nav-link">
 
                       <img class="img-amazone logo" src="${whiteamazon}" alt="app">
                      </a>
@@ -85,7 +90,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${appleURL}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
+                      <a href="${apple.url}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
                       
                     </li>
                   </ul>
@@ -110,7 +115,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                 <div class="slist-nav">
                   <ul class="slist-nav-list">
                     <li class="slist-nav-item">
-                      <a href="${amazonURL}" class="slist-nav-link">
+                      <a href="${am.url}" class="slist-nav-link">
 
                       <img class="img-amazone logo" src="${amazon}" alt="app">
                      </a>
@@ -118,7 +123,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${appleURL}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
+                      <a href="${apple.url}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
                       
                     </li>
                   </ul>
@@ -127,7 +132,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
             </li>
           </div>`
   }
-  };
+   };
 
           function imagesTemplate(array) {
   return array.map(imageTemplate).join('');
