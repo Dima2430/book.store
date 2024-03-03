@@ -189,6 +189,7 @@ body {
 }
 
 .slist-book-header {
+
   /* display: inline-block; */
   display: block;
   width: auto;
@@ -235,6 +236,7 @@ body {
   line-height: 1.28571;
   letter-spacing: -0.04em;
   color: var(--black-color);
+
 }
 
 .slist-book-autor {
@@ -397,6 +399,7 @@ body {
     margin-right: auto;
   }
 
+
   .side-container {
     display: block;
     position: absolute;
@@ -426,6 +429,7 @@ body {
     max-width: 700px;
     text-transform: uppercase;
   }
+
 
   .slist-book-category {
     max-width: 700px;

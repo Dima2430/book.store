@@ -43,7 +43,8 @@ async function renderImages(array) {
           
           const currentBook = await getbook(item);
         booksArr.push(currentBook);
-        // console.log(booksArr);
+        const amazonLink = currentBook.buy_links.find(link => link.name === 'Amazon');
+        console.log(amazonLink.url);
           // return booksArr;
            
       }

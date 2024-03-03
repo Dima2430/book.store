@@ -14,9 +14,11 @@ const a = document.querySelectorAll('a');
 const categoryLink = document.querySelectorAll('.sidebar-categories-link');
 
 
+
 themeSwitch.addEventListener('change', () => {
       location.reload();
 })
+
 
 
 // Функція для зміни теми та збереження її в локальному сховищі
