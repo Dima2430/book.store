@@ -57,7 +57,7 @@ async function renderImages(array) {
 
 import amazon from "../img/amazon.png";
 import ibook from "../img/ibook.png";
-
+import whiteAmazon from "../img/white-amazon.png"
   
 
 function imageTemplate({ _id, book_image, title, list_name, description, author, buy_links }) {
@@ -65,7 +65,42 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
 
   let am = buy_links.map(item => item).find(link => link.name === 'Amazon')
  let apple = buy_links.map(item => item).find(link =>link.name === 'Apple Books')
-   return `<div class="slist-card-list">
+   if (localStorage.getItem('theme') === 'dark') {
+    const whiteamazon = whiteAmazon; 
+    return `<div class="slist-card-list">
+            <li class="slist-card-item">
+              <button type="button" data-id=${_id} class="slist-del-btn js-slist-del-btn">
+              </button>
+              <div class="slist-card-picture">
+                <img src="${book_image}" class="slist-book-img" alt="books" />
+              </div>
+              <div class="slist-info-container">
+                <h3 class="slist-book-header">${title}</h3>
+                <h4 class="slist-book-category">${list_name}</h4>
+                <p class="slist-book-description">${description}</p>
+                <h5 class="slist-book-autor">${author}</h5>
+
+                <div class="slist-nav">
+                  <ul class="slist-nav-list">
+                    <li class="slist-nav-item">
+                      <a href="${am.url}" class="slist-nav-link">
+
+                      <img class="img-amazone logo" src="${whiteamazon}" alt="app">
+                     </a>
+
+                    </li>
+
+                    <li class="slist-nav-item">
+                      <a href="${apple.url}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </div>`
+  } else {
+    return `<div class="slist-card-list">
             <li class="slist-card-item">
               <button type="button" data-id=${_id} class="slist-del-btn js-slist-del-btn">
               </button>
@@ -89,16 +124,16 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                     </li>
 
                     <li class="slist-nav-item">
-
                       <a href="${apple.url}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
-
                       
                     </li>
                   </ul>
                 </div>
               </div>
             </li>
-          </div>`};
+          </div>`
+  }
+   };
 
           function imagesTemplate(array) {
   return array.map(imageTemplate).join('');
