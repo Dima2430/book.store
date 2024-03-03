@@ -53,7 +53,8 @@ async function renderImages(array) {
     } 
 };
 
-
+import amazon from "./img/amazon.png";
+import ibook from "./img/ibook.png";
   
 function imageTemplate({ _id, book_image,title,list_name,description,author,amazonURL,appleURL}) {
   return `<div class="slist-card-list">
@@ -74,13 +75,13 @@ function imageTemplate({ _id, book_image,title,list_name,description,author,amaz
                     <li class="slist-nav-item">
                       <a href="${amazonURL}" class="slist-nav-link">
 
-                      <img class="img-amazone logo" src="./img/amazon.png" alt="app">
+                      <img class="img-amazone logo" src="${amazon}" alt="app">
                      </a>
 
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${appleURL}" class="slist-nav-link"><img class="img-app logo" src="./img/ibook.png" alt="app"></a>
+                      <a href="${appleURL}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
                       
                     </li>
                   </ul>

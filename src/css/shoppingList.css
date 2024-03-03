@@ -421,6 +421,7 @@ body {
 
   .slist-book-header {
     display: block;
+    height: 35px;
     font-size: 18px;
     max-width: 700px;
     text-transform: uppercase;
