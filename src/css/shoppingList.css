@@ -215,7 +215,7 @@ display: none;
     margin-bottom: 4px;
     height: 18px;
     margin-top: 0;
-    overflow: auto;
+    overflow: hidden;
     font-family: "DM Sans", sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -227,9 +227,9 @@ display: none;
 }
 
 .slist-book-category {
-    /* display: inline-block; */
+    display: inline-block;
     max-width: 165px;
-    height: 14px;
+    height: 12px;
     margin-bottom: 8px;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
@@ -243,7 +243,7 @@ display: none;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: auto;
+    overflow: hidden;
     visibility: visible;
     margin-top: 0;
     margin-bottom: 16px;
@@ -479,6 +479,7 @@ display: none;
 
     .slist-book-header {
         display: block;
+        height: 30px;
         font-size: 18px;
         max-width: 700px;
         text-transform: uppercase;
