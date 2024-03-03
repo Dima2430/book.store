@@ -43,7 +43,8 @@ async function renderImages(array) {
           
           const currentBook = await getbook(item);
         booksArr.push(currentBook);
-        // console.log(booksArr);
+        const amazonLink = currentBook.buy_links.find(link => link.name === 'Amazon');
+        console.log(amazonLink.url);
           // return booksArr;
            
       }
@@ -58,8 +59,13 @@ import amazon from "../img/amazon.png";
 import ibook from "../img/ibook.png";
 
   
-function imageTemplate({ _id, book_image, title, list_name, description, author, amazonURL, appleURL }) {
-  return `<div class="slist-card-list">
+
+function imageTemplate({ _id, book_image, title, list_name, description, author, buy_links }) {
+ 
+
+  let am = buy_links.map(item => item).find(link => link.name === 'Amazon')
+ let apple = buy_links.map(item => item).find(link =>link.name === 'Apple Books')
+   return `<div class="slist-card-list">
             <li class="slist-card-item">
               <button type="button" data-id=${_id} class="slist-del-btn js-slist-del-btn">
               </button>
@@ -75,7 +81,7 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                 <div class="slist-nav">
                   <ul class="slist-nav-list">
                     <li class="slist-nav-item">
-                      <a href="${amazonURL}" class="slist-nav-link">
+                      <a href="${am.url}" class="slist-nav-link">
 
                       <img class="img-amazone logo" src="${amazon}" alt="app">
                      </a>
@@ -83,7 +89,9 @@ function imageTemplate({ _id, book_image, title, list_name, description, author,
                     </li>
 
                     <li class="slist-nav-item">
-                      <a href="${appleURL}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
+
+                      <a href="${apple.url}" class="slist-nav-link"><img class="img-app logo" src="${ibook}" alt="app"></a>
+
                       
                     </li>
                   </ul>

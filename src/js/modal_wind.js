@@ -178,7 +178,7 @@ async function getbook(bookId) {
   } catch (error) { 
     console.log('Результатів не знайдено.'); 
   } 
-}
+} 
 
 function fillModalContent(book) {
   const bookNameElement = document.querySelector('.book_name');
