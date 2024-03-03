@@ -4,7 +4,6 @@ const storedBooks = {};
 let dataId ;
 let dataBookId = dataId;
 
-
 document.addEventListener('DOMContentLoaded', function () {
   const parentContainer = document.getElementById('container');
   const modal = document.getElementById('myModal');
